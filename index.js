@@ -19,8 +19,8 @@ client.connect((err) => {
 
   app.post("/addProduct", (req, res) => {
     const products = req.body;
-    productsCollection.insertOne(products).then((res) => {
-      res.send(res.insertedCount);
+    productsCollection.insertOne(products).then((result) => {
+      res.send(result.insertedCount);
     });
   });
   app.get("/products", (req, res) => {
@@ -45,8 +45,8 @@ client.connect((err) => {
   });
   app.post("/addOrder", (req, res) => {
     const order = req.body;
-    orderCollection.insertOne(order).then((res) => {
-      res.send(res.insertedCount > 0);
+    orderCollection.insertOne(order).then((result) => {
+      res.send(result.insertedCount);
     });
   });
 });
